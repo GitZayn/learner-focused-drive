@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutJasonRouteImport } from './routes/about-jason'
 import { Route as AreasWeCoverRouteImport } from './routes/areas-we-cover'
 import { Route as ClientCentredLearningRouteImport } from './routes/client-centred-learning'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DrivingLessonsRouteImport } from './routes/driving-lessons'
 import { Route as DrivingVideosRouteImport } from './routes/driving-videos'
 import { Route as FaqRouteImport } from './routes/faq'
@@ -39,6 +40,11 @@ const AreasWeCoverRoute = AreasWeCoverRouteImport.update({
 const ClientCentredLearningRoute = ClientCentredLearningRouteImport.update({
   id: '/client-centred-learning',
   path: '/client-centred-learning',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DrivingLessonsRoute = DrivingLessonsRouteImport.update({
@@ -82,6 +88,7 @@ export interface FileRoutesByFullPath {
   '/about-jason': typeof AboutJasonRoute
   '/areas-we-cover': typeof AreasWeCoverRoute
   '/client-centred-learning': typeof ClientCentredLearningRoute
+  '/contact': typeof ContactRoute
   '/driving-lessons': typeof DrivingLessonsRoute
   '/driving-videos': typeof DrivingVideosRoute
   '/faq': typeof FaqRoute
@@ -95,6 +102,7 @@ export interface FileRoutesByTo {
   '/about-jason': typeof AboutJasonRoute
   '/areas-we-cover': typeof AreasWeCoverRoute
   '/client-centred-learning': typeof ClientCentredLearningRoute
+  '/contact': typeof ContactRoute
   '/driving-lessons': typeof DrivingLessonsRoute
   '/driving-videos': typeof DrivingVideosRoute
   '/faq': typeof FaqRoute
@@ -109,6 +117,7 @@ export interface FileRoutesById {
   '/about-jason': typeof AboutJasonRoute
   '/areas-we-cover': typeof AreasWeCoverRoute
   '/client-centred-learning': typeof ClientCentredLearningRoute
+  '/contact': typeof ContactRoute
   '/driving-lessons': typeof DrivingLessonsRoute
   '/driving-videos': typeof DrivingVideosRoute
   '/faq': typeof FaqRoute
@@ -124,6 +133,7 @@ export interface FileRouteTypes {
     | '/about-jason'
     | '/areas-we-cover'
     | '/client-centred-learning'
+    | '/contact'
     | '/driving-lessons'
     | '/driving-videos'
     | '/faq'
@@ -137,6 +147,7 @@ export interface FileRouteTypes {
     | '/about-jason'
     | '/areas-we-cover'
     | '/client-centred-learning'
+    | '/contact'
     | '/driving-lessons'
     | '/driving-videos'
     | '/faq'
@@ -150,6 +161,7 @@ export interface FileRouteTypes {
     | '/about-jason'
     | '/areas-we-cover'
     | '/client-centred-learning'
+    | '/contact'
     | '/driving-lessons'
     | '/driving-videos'
     | '/faq'
@@ -164,6 +176,7 @@ export interface RootRouteChildren {
   AboutJasonRoute: typeof AboutJasonRoute
   AreasWeCoverRoute: typeof AreasWeCoverRoute
   ClientCentredLearningRoute: typeof ClientCentredLearningRoute
+  ContactRoute: typeof ContactRoute
   DrivingLessonsRoute: typeof DrivingLessonsRoute
   DrivingVideosRoute: typeof DrivingVideosRoute
   FaqRoute: typeof FaqRoute
@@ -201,6 +214,13 @@ declare module '@tanstack/react-router' {
       path: '/client-centred-learning'
       fullPath: '/client-centred-learning'
       preLoaderRoute: typeof ClientCentredLearningRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/driving-lessons': {
@@ -260,6 +280,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutJasonRoute: AboutJasonRoute,
   AreasWeCoverRoute: AreasWeCoverRoute,
   ClientCentredLearningRoute: ClientCentredLearningRoute,
+  ContactRoute: ContactRoute,
   DrivingLessonsRoute: DrivingLessonsRoute,
   DrivingVideosRoute: DrivingVideosRoute,
   FaqRoute: FaqRoute,
