@@ -14,6 +14,7 @@ import { Route as AboutJasonRouteImport } from './routes/about-jason'
 import { Route as AreasWeCoverRouteImport } from './routes/areas-we-cover'
 import { Route as ClientCentredLearningRouteImport } from './routes/client-centred-learning'
 import { Route as DrivingLessonsRouteImport } from './routes/driving-lessons'
+import { Route as DrivingVideosRouteImport } from './routes/driving-videos'
 import { Route as LessonPricesRouteImport } from './routes/lesson-prices'
 import { Route as SemiIntensiveCoursesRouteImport } from './routes/semi-intensive-courses'
 
@@ -42,6 +43,11 @@ const DrivingLessonsRoute = DrivingLessonsRouteImport.update({
   path: '/driving-lessons',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DrivingVideosRoute = DrivingVideosRouteImport.update({
+  id: '/driving-videos',
+  path: '/driving-videos',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LessonPricesRoute = LessonPricesRouteImport.update({
   id: '/lesson-prices',
   path: '/lesson-prices',
@@ -59,6 +65,7 @@ export interface FileRoutesByFullPath {
   '/areas-we-cover': typeof AreasWeCoverRoute
   '/client-centred-learning': typeof ClientCentredLearningRoute
   '/driving-lessons': typeof DrivingLessonsRoute
+  '/driving-videos': typeof DrivingVideosRoute
   '/lesson-prices': typeof LessonPricesRoute
   '/semi-intensive-courses': typeof SemiIntensiveCoursesRoute
 }
@@ -68,6 +75,7 @@ export interface FileRoutesByTo {
   '/areas-we-cover': typeof AreasWeCoverRoute
   '/client-centred-learning': typeof ClientCentredLearningRoute
   '/driving-lessons': typeof DrivingLessonsRoute
+  '/driving-videos': typeof DrivingVideosRoute
   '/lesson-prices': typeof LessonPricesRoute
   '/semi-intensive-courses': typeof SemiIntensiveCoursesRoute
 }
@@ -78,6 +86,7 @@ export interface FileRoutesById {
   '/areas-we-cover': typeof AreasWeCoverRoute
   '/client-centred-learning': typeof ClientCentredLearningRoute
   '/driving-lessons': typeof DrivingLessonsRoute
+  '/driving-videos': typeof DrivingVideosRoute
   '/lesson-prices': typeof LessonPricesRoute
   '/semi-intensive-courses': typeof SemiIntensiveCoursesRoute
 }
@@ -89,6 +98,7 @@ export interface FileRouteTypes {
     | '/areas-we-cover'
     | '/client-centred-learning'
     | '/driving-lessons'
+    | '/driving-videos'
     | '/lesson-prices'
     | '/semi-intensive-courses'
   fileRoutesByTo: FileRoutesByTo
@@ -98,6 +108,7 @@ export interface FileRouteTypes {
     | '/areas-we-cover'
     | '/client-centred-learning'
     | '/driving-lessons'
+    | '/driving-videos'
     | '/lesson-prices'
     | '/semi-intensive-courses'
   id:
@@ -107,6 +118,7 @@ export interface FileRouteTypes {
     | '/areas-we-cover'
     | '/client-centred-learning'
     | '/driving-lessons'
+    | '/driving-videos'
     | '/lesson-prices'
     | '/semi-intensive-courses'
   fileRoutesById: FileRoutesById
@@ -117,6 +129,7 @@ export interface RootRouteChildren {
   AreasWeCoverRoute: typeof AreasWeCoverRoute
   ClientCentredLearningRoute: typeof ClientCentredLearningRoute
   DrivingLessonsRoute: typeof DrivingLessonsRoute
+  DrivingVideosRoute: typeof DrivingVideosRoute
   LessonPricesRoute: typeof LessonPricesRoute
   SemiIntensiveCoursesRoute: typeof SemiIntensiveCoursesRoute
 }
@@ -158,6 +171,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DrivingLessonsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/driving-videos': {
+      id: '/driving-videos'
+      path: '/driving-videos'
+      fullPath: '/driving-videos'
+      preLoaderRoute: typeof DrivingVideosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/lesson-prices': {
       id: '/lesson-prices'
       path: '/lesson-prices'
@@ -181,6 +201,7 @@ const rootRouteChildren: RootRouteChildren = {
   AreasWeCoverRoute: AreasWeCoverRoute,
   ClientCentredLearningRoute: ClientCentredLearningRoute,
   DrivingLessonsRoute: DrivingLessonsRoute,
+  DrivingVideosRoute: DrivingVideosRoute,
   LessonPricesRoute: LessonPricesRoute,
   SemiIntensiveCoursesRoute: SemiIntensiveCoursesRoute,
 }
