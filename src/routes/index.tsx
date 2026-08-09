@@ -67,7 +67,7 @@ const reasons = [
 ];
 
 function Home() {
-  const previewVideos = [videos[0], videos[5], videos[1]];
+  const previewVideos = videos.filter((v) => ["GoizI8IUp-4", "msQKScG4z-8", "fvs0W2DH6fk"].includes(v.id));
 
   return (
     <>
