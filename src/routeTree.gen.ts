@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutJasonRouteImport } from './routes/about-jason'
 import { Route as ClientCentredLearningRouteImport } from './routes/client-centred-learning'
 import { Route as DrivingLessonsRouteImport } from './routes/driving-lessons'
+import { Route as LessonPricesRouteImport } from './routes/lesson-prices'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -34,18 +35,25 @@ const DrivingLessonsRoute = DrivingLessonsRouteImport.update({
   path: '/driving-lessons',
   getParentRoute: () => rootRouteImport,
 } as any)
+const LessonPricesRoute = LessonPricesRouteImport.update({
+  id: '/lesson-prices',
+  path: '/lesson-prices',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about-jason': typeof AboutJasonRoute
   '/client-centred-learning': typeof ClientCentredLearningRoute
   '/driving-lessons': typeof DrivingLessonsRoute
+  '/lesson-prices': typeof LessonPricesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about-jason': typeof AboutJasonRoute
   '/client-centred-learning': typeof ClientCentredLearningRoute
   '/driving-lessons': typeof DrivingLessonsRoute
+  '/lesson-prices': typeof LessonPricesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,19 +61,30 @@ export interface FileRoutesById {
   '/about-jason': typeof AboutJasonRoute
   '/client-centred-learning': typeof ClientCentredLearningRoute
   '/driving-lessons': typeof DrivingLessonsRoute
+  '/lesson-prices': typeof LessonPricesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
-    '/' | '/about-jason' | '/client-centred-learning' | '/driving-lessons'
+    | '/'
+    | '/about-jason'
+    | '/client-centred-learning'
+    | '/driving-lessons'
+    | '/lesson-prices'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about-jason' | '/client-centred-learning' | '/driving-lessons'
+  to:
+    | '/'
+    | '/about-jason'
+    | '/client-centred-learning'
+    | '/driving-lessons'
+    | '/lesson-prices'
   id:
     | '__root__'
     | '/'
     | '/about-jason'
     | '/client-centred-learning'
     | '/driving-lessons'
+    | '/lesson-prices'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -73,6 +92,7 @@ export interface RootRouteChildren {
   AboutJasonRoute: typeof AboutJasonRoute
   ClientCentredLearningRoute: typeof ClientCentredLearningRoute
   DrivingLessonsRoute: typeof DrivingLessonsRoute
+  LessonPricesRoute: typeof LessonPricesRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -105,6 +125,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DrivingLessonsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/lesson-prices': {
+      id: '/lesson-prices'
+      path: '/lesson-prices'
+      fullPath: '/lesson-prices'
+      preLoaderRoute: typeof LessonPricesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -113,6 +140,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutJasonRoute: AboutJasonRoute,
   ClientCentredLearningRoute: ClientCentredLearningRoute,
   DrivingLessonsRoute: DrivingLessonsRoute,
+  LessonPricesRoute: LessonPricesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
