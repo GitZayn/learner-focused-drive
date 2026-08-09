@@ -10,33 +10,180 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutJasonRouteImport } from './routes/about-jason'
+import { Route as AreasWeCoverRouteImport } from './routes/areas-we-cover'
+import { Route as ClientCentredLearningRouteImport } from './routes/client-centred-learning'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DrivingLessonsRouteImport } from './routes/driving-lessons'
+import { Route as DrivingVideosRouteImport } from './routes/driving-videos'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as LessonPricesRouteImport } from './routes/lesson-prices'
+import { Route as ReviewsRouteImport } from './routes/reviews'
+import { Route as SemiIntensiveCoursesRouteImport } from './routes/semi-intensive-courses'
+import { Route as TheoryTestSupportRouteImport } from './routes/theory-test-support'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutJasonRoute = AboutJasonRouteImport.update({
+  id: '/about-jason',
+  path: '/about-jason',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AreasWeCoverRoute = AreasWeCoverRouteImport.update({
+  id: '/areas-we-cover',
+  path: '/areas-we-cover',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ClientCentredLearningRoute = ClientCentredLearningRouteImport.update({
+  id: '/client-centred-learning',
+  path: '/client-centred-learning',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DrivingLessonsRoute = DrivingLessonsRouteImport.update({
+  id: '/driving-lessons',
+  path: '/driving-lessons',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DrivingVideosRoute = DrivingVideosRouteImport.update({
+  id: '/driving-videos',
+  path: '/driving-videos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LessonPricesRoute = LessonPricesRouteImport.update({
+  id: '/lesson-prices',
+  path: '/lesson-prices',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReviewsRoute = ReviewsRouteImport.update({
+  id: '/reviews',
+  path: '/reviews',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SemiIntensiveCoursesRoute = SemiIntensiveCoursesRouteImport.update({
+  id: '/semi-intensive-courses',
+  path: '/semi-intensive-courses',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TheoryTestSupportRoute = TheoryTestSupportRouteImport.update({
+  id: '/theory-test-support',
+  path: '/theory-test-support',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about-jason': typeof AboutJasonRoute
+  '/areas-we-cover': typeof AreasWeCoverRoute
+  '/client-centred-learning': typeof ClientCentredLearningRoute
+  '/contact': typeof ContactRoute
+  '/driving-lessons': typeof DrivingLessonsRoute
+  '/driving-videos': typeof DrivingVideosRoute
+  '/faq': typeof FaqRoute
+  '/lesson-prices': typeof LessonPricesRoute
+  '/reviews': typeof ReviewsRoute
+  '/semi-intensive-courses': typeof SemiIntensiveCoursesRoute
+  '/theory-test-support': typeof TheoryTestSupportRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about-jason': typeof AboutJasonRoute
+  '/areas-we-cover': typeof AreasWeCoverRoute
+  '/client-centred-learning': typeof ClientCentredLearningRoute
+  '/contact': typeof ContactRoute
+  '/driving-lessons': typeof DrivingLessonsRoute
+  '/driving-videos': typeof DrivingVideosRoute
+  '/faq': typeof FaqRoute
+  '/lesson-prices': typeof LessonPricesRoute
+  '/reviews': typeof ReviewsRoute
+  '/semi-intensive-courses': typeof SemiIntensiveCoursesRoute
+  '/theory-test-support': typeof TheoryTestSupportRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about-jason': typeof AboutJasonRoute
+  '/areas-we-cover': typeof AreasWeCoverRoute
+  '/client-centred-learning': typeof ClientCentredLearningRoute
+  '/contact': typeof ContactRoute
+  '/driving-lessons': typeof DrivingLessonsRoute
+  '/driving-videos': typeof DrivingVideosRoute
+  '/faq': typeof FaqRoute
+  '/lesson-prices': typeof LessonPricesRoute
+  '/reviews': typeof ReviewsRoute
+  '/semi-intensive-courses': typeof SemiIntensiveCoursesRoute
+  '/theory-test-support': typeof TheoryTestSupportRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about-jason'
+    | '/areas-we-cover'
+    | '/client-centred-learning'
+    | '/contact'
+    | '/driving-lessons'
+    | '/driving-videos'
+    | '/faq'
+    | '/lesson-prices'
+    | '/reviews'
+    | '/semi-intensive-courses'
+    | '/theory-test-support'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about-jason'
+    | '/areas-we-cover'
+    | '/client-centred-learning'
+    | '/contact'
+    | '/driving-lessons'
+    | '/driving-videos'
+    | '/faq'
+    | '/lesson-prices'
+    | '/reviews'
+    | '/semi-intensive-courses'
+    | '/theory-test-support'
+  id:
+    | '__root__'
+    | '/'
+    | '/about-jason'
+    | '/areas-we-cover'
+    | '/client-centred-learning'
+    | '/contact'
+    | '/driving-lessons'
+    | '/driving-videos'
+    | '/faq'
+    | '/lesson-prices'
+    | '/reviews'
+    | '/semi-intensive-courses'
+    | '/theory-test-support'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutJasonRoute: typeof AboutJasonRoute
+  AreasWeCoverRoute: typeof AreasWeCoverRoute
+  ClientCentredLearningRoute: typeof ClientCentredLearningRoute
+  ContactRoute: typeof ContactRoute
+  DrivingLessonsRoute: typeof DrivingLessonsRoute
+  DrivingVideosRoute: typeof DrivingVideosRoute
+  FaqRoute: typeof FaqRoute
+  LessonPricesRoute: typeof LessonPricesRoute
+  ReviewsRoute: typeof ReviewsRoute
+  SemiIntensiveCoursesRoute: typeof SemiIntensiveCoursesRoute
+  TheoryTestSupportRoute: typeof TheoryTestSupportRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,22 +195,100 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about-jason': {
+      id: '/about-jason'
+      path: '/about-jason'
+      fullPath: '/about-jason'
+      preLoaderRoute: typeof AboutJasonRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/areas-we-cover': {
+      id: '/areas-we-cover'
+      path: '/areas-we-cover'
+      fullPath: '/areas-we-cover'
+      preLoaderRoute: typeof AreasWeCoverRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/client-centred-learning': {
+      id: '/client-centred-learning'
+      path: '/client-centred-learning'
+      fullPath: '/client-centred-learning'
+      preLoaderRoute: typeof ClientCentredLearningRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/driving-lessons': {
+      id: '/driving-lessons'
+      path: '/driving-lessons'
+      fullPath: '/driving-lessons'
+      preLoaderRoute: typeof DrivingLessonsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/driving-videos': {
+      id: '/driving-videos'
+      path: '/driving-videos'
+      fullPath: '/driving-videos'
+      preLoaderRoute: typeof DrivingVideosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/lesson-prices': {
+      id: '/lesson-prices'
+      path: '/lesson-prices'
+      fullPath: '/lesson-prices'
+      preLoaderRoute: typeof LessonPricesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reviews': {
+      id: '/reviews'
+      path: '/reviews'
+      fullPath: '/reviews'
+      preLoaderRoute: typeof ReviewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/semi-intensive-courses': {
+      id: '/semi-intensive-courses'
+      path: '/semi-intensive-courses'
+      fullPath: '/semi-intensive-courses'
+      preLoaderRoute: typeof SemiIntensiveCoursesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/theory-test-support': {
+      id: '/theory-test-support'
+      path: '/theory-test-support'
+      fullPath: '/theory-test-support'
+      preLoaderRoute: typeof TheoryTestSupportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutJasonRoute: AboutJasonRoute,
+  AreasWeCoverRoute: AreasWeCoverRoute,
+  ClientCentredLearningRoute: ClientCentredLearningRoute,
+  ContactRoute: ContactRoute,
+  DrivingLessonsRoute: DrivingLessonsRoute,
+  DrivingVideosRoute: DrivingVideosRoute,
+  FaqRoute: FaqRoute,
+  LessonPricesRoute: LessonPricesRoute,
+  ReviewsRoute: ReviewsRoute,
+  SemiIntensiveCoursesRoute: SemiIntensiveCoursesRoute,
+  TheoryTestSupportRoute: TheoryTestSupportRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
