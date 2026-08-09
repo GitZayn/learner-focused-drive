@@ -14,6 +14,7 @@ import { Route as AboutJasonRouteImport } from './routes/about-jason'
 import { Route as ClientCentredLearningRouteImport } from './routes/client-centred-learning'
 import { Route as DrivingLessonsRouteImport } from './routes/driving-lessons'
 import { Route as LessonPricesRouteImport } from './routes/lesson-prices'
+import { Route as SemiIntensiveCoursesRouteImport } from './routes/semi-intensive-courses'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -40,6 +41,11 @@ const LessonPricesRoute = LessonPricesRouteImport.update({
   path: '/lesson-prices',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SemiIntensiveCoursesRoute = SemiIntensiveCoursesRouteImport.update({
+  id: '/semi-intensive-courses',
+  path: '/semi-intensive-courses',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -47,6 +53,7 @@ export interface FileRoutesByFullPath {
   '/client-centred-learning': typeof ClientCentredLearningRoute
   '/driving-lessons': typeof DrivingLessonsRoute
   '/lesson-prices': typeof LessonPricesRoute
+  '/semi-intensive-courses': typeof SemiIntensiveCoursesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -54,6 +61,7 @@ export interface FileRoutesByTo {
   '/client-centred-learning': typeof ClientCentredLearningRoute
   '/driving-lessons': typeof DrivingLessonsRoute
   '/lesson-prices': typeof LessonPricesRoute
+  '/semi-intensive-courses': typeof SemiIntensiveCoursesRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -62,6 +70,7 @@ export interface FileRoutesById {
   '/client-centred-learning': typeof ClientCentredLearningRoute
   '/driving-lessons': typeof DrivingLessonsRoute
   '/lesson-prices': typeof LessonPricesRoute
+  '/semi-intensive-courses': typeof SemiIntensiveCoursesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -71,6 +80,7 @@ export interface FileRouteTypes {
     | '/client-centred-learning'
     | '/driving-lessons'
     | '/lesson-prices'
+    | '/semi-intensive-courses'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -78,6 +88,7 @@ export interface FileRouteTypes {
     | '/client-centred-learning'
     | '/driving-lessons'
     | '/lesson-prices'
+    | '/semi-intensive-courses'
   id:
     | '__root__'
     | '/'
@@ -85,6 +96,7 @@ export interface FileRouteTypes {
     | '/client-centred-learning'
     | '/driving-lessons'
     | '/lesson-prices'
+    | '/semi-intensive-courses'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -93,6 +105,7 @@ export interface RootRouteChildren {
   ClientCentredLearningRoute: typeof ClientCentredLearningRoute
   DrivingLessonsRoute: typeof DrivingLessonsRoute
   LessonPricesRoute: typeof LessonPricesRoute
+  SemiIntensiveCoursesRoute: typeof SemiIntensiveCoursesRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -132,6 +145,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LessonPricesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/semi-intensive-courses': {
+      id: '/semi-intensive-courses'
+      path: '/semi-intensive-courses'
+      fullPath: '/semi-intensive-courses'
+      preLoaderRoute: typeof SemiIntensiveCoursesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -141,6 +161,7 @@ const rootRouteChildren: RootRouteChildren = {
   ClientCentredLearningRoute: ClientCentredLearningRoute,
   DrivingLessonsRoute: DrivingLessonsRoute,
   LessonPricesRoute: LessonPricesRoute,
+  SemiIntensiveCoursesRoute: SemiIntensiveCoursesRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
