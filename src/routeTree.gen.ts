@@ -19,6 +19,7 @@ import { Route as FaqRouteImport } from './routes/faq'
 import { Route as LessonPricesRouteImport } from './routes/lesson-prices'
 import { Route as ReviewsRouteImport } from './routes/reviews'
 import { Route as SemiIntensiveCoursesRouteImport } from './routes/semi-intensive-courses'
+import { Route as TheoryTestSupportRouteImport } from './routes/theory-test-support'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -70,6 +71,11 @@ const SemiIntensiveCoursesRoute = SemiIntensiveCoursesRouteImport.update({
   path: '/semi-intensive-courses',
   getParentRoute: () => rootRouteImport,
 } as any)
+const TheoryTestSupportRoute = TheoryTestSupportRouteImport.update({
+  id: '/theory-test-support',
+  path: '/theory-test-support',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -82,6 +88,7 @@ export interface FileRoutesByFullPath {
   '/lesson-prices': typeof LessonPricesRoute
   '/reviews': typeof ReviewsRoute
   '/semi-intensive-courses': typeof SemiIntensiveCoursesRoute
+  '/theory-test-support': typeof TheoryTestSupportRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -94,6 +101,7 @@ export interface FileRoutesByTo {
   '/lesson-prices': typeof LessonPricesRoute
   '/reviews': typeof ReviewsRoute
   '/semi-intensive-courses': typeof SemiIntensiveCoursesRoute
+  '/theory-test-support': typeof TheoryTestSupportRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -107,6 +115,7 @@ export interface FileRoutesById {
   '/lesson-prices': typeof LessonPricesRoute
   '/reviews': typeof ReviewsRoute
   '/semi-intensive-courses': typeof SemiIntensiveCoursesRoute
+  '/theory-test-support': typeof TheoryTestSupportRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -121,6 +130,7 @@ export interface FileRouteTypes {
     | '/lesson-prices'
     | '/reviews'
     | '/semi-intensive-courses'
+    | '/theory-test-support'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -133,6 +143,7 @@ export interface FileRouteTypes {
     | '/lesson-prices'
     | '/reviews'
     | '/semi-intensive-courses'
+    | '/theory-test-support'
   id:
     | '__root__'
     | '/'
@@ -145,6 +156,7 @@ export interface FileRouteTypes {
     | '/lesson-prices'
     | '/reviews'
     | '/semi-intensive-courses'
+    | '/theory-test-support'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -158,6 +170,7 @@ export interface RootRouteChildren {
   LessonPricesRoute: typeof LessonPricesRoute
   ReviewsRoute: typeof ReviewsRoute
   SemiIntensiveCoursesRoute: typeof SemiIntensiveCoursesRoute
+  TheoryTestSupportRoute: typeof TheoryTestSupportRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -232,6 +245,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SemiIntensiveCoursesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/theory-test-support': {
+      id: '/theory-test-support'
+      path: '/theory-test-support'
+      fullPath: '/theory-test-support'
+      preLoaderRoute: typeof TheoryTestSupportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -246,6 +266,7 @@ const rootRouteChildren: RootRouteChildren = {
   LessonPricesRoute: LessonPricesRoute,
   ReviewsRoute: ReviewsRoute,
   SemiIntensiveCoursesRoute: SemiIntensiveCoursesRoute,
+  TheoryTestSupportRoute: TheoryTestSupportRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
