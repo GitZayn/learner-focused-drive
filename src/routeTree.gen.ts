@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutJasonRouteImport } from './routes/about-jason'
+import { Route as ClientCentredLearningRouteImport } from './routes/client-centred-learning'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,31 +23,40 @@ const AboutJasonRoute = AboutJasonRouteImport.update({
   path: '/about-jason',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ClientCentredLearningRoute = ClientCentredLearningRouteImport.update({
+  id: '/client-centred-learning',
+  path: '/client-centred-learning',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about-jason': typeof AboutJasonRoute
+  '/client-centred-learning': typeof ClientCentredLearningRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about-jason': typeof AboutJasonRoute
+  '/client-centred-learning': typeof ClientCentredLearningRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about-jason': typeof AboutJasonRoute
+  '/client-centred-learning': typeof ClientCentredLearningRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about-jason'
+  fullPaths: '/' | '/about-jason' | '/client-centred-learning'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about-jason'
-  id: '__root__' | '/' | '/about-jason'
+  to: '/' | '/about-jason' | '/client-centred-learning'
+  id: '__root__' | '/' | '/about-jason' | '/client-centred-learning'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutJasonRoute: typeof AboutJasonRoute
+  ClientCentredLearningRoute: typeof ClientCentredLearningRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +75,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutJasonRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/client-centred-learning': {
+      id: '/client-centred-learning'
+      path: '/client-centred-learning'
+      fullPath: '/client-centred-learning'
+      preLoaderRoute: typeof ClientCentredLearningRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutJasonRoute: AboutJasonRoute,
+  ClientCentredLearningRoute: ClientCentredLearningRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
