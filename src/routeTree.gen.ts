@@ -15,6 +15,7 @@ import { Route as AreasWeCoverRouteImport } from './routes/areas-we-cover'
 import { Route as ClientCentredLearningRouteImport } from './routes/client-centred-learning'
 import { Route as DrivingLessonsRouteImport } from './routes/driving-lessons'
 import { Route as DrivingVideosRouteImport } from './routes/driving-videos'
+import { Route as FaqRouteImport } from './routes/faq'
 import { Route as LessonPricesRouteImport } from './routes/lesson-prices'
 import { Route as ReviewsRouteImport } from './routes/reviews'
 import { Route as SemiIntensiveCoursesRouteImport } from './routes/semi-intensive-courses'
@@ -49,6 +50,11 @@ const DrivingVideosRoute = DrivingVideosRouteImport.update({
   path: '/driving-videos',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const LessonPricesRoute = LessonPricesRouteImport.update({
   id: '/lesson-prices',
   path: '/lesson-prices',
@@ -72,6 +78,7 @@ export interface FileRoutesByFullPath {
   '/client-centred-learning': typeof ClientCentredLearningRoute
   '/driving-lessons': typeof DrivingLessonsRoute
   '/driving-videos': typeof DrivingVideosRoute
+  '/faq': typeof FaqRoute
   '/lesson-prices': typeof LessonPricesRoute
   '/reviews': typeof ReviewsRoute
   '/semi-intensive-courses': typeof SemiIntensiveCoursesRoute
@@ -83,6 +90,7 @@ export interface FileRoutesByTo {
   '/client-centred-learning': typeof ClientCentredLearningRoute
   '/driving-lessons': typeof DrivingLessonsRoute
   '/driving-videos': typeof DrivingVideosRoute
+  '/faq': typeof FaqRoute
   '/lesson-prices': typeof LessonPricesRoute
   '/reviews': typeof ReviewsRoute
   '/semi-intensive-courses': typeof SemiIntensiveCoursesRoute
@@ -95,6 +103,7 @@ export interface FileRoutesById {
   '/client-centred-learning': typeof ClientCentredLearningRoute
   '/driving-lessons': typeof DrivingLessonsRoute
   '/driving-videos': typeof DrivingVideosRoute
+  '/faq': typeof FaqRoute
   '/lesson-prices': typeof LessonPricesRoute
   '/reviews': typeof ReviewsRoute
   '/semi-intensive-courses': typeof SemiIntensiveCoursesRoute
@@ -108,6 +117,7 @@ export interface FileRouteTypes {
     | '/client-centred-learning'
     | '/driving-lessons'
     | '/driving-videos'
+    | '/faq'
     | '/lesson-prices'
     | '/reviews'
     | '/semi-intensive-courses'
@@ -119,6 +129,7 @@ export interface FileRouteTypes {
     | '/client-centred-learning'
     | '/driving-lessons'
     | '/driving-videos'
+    | '/faq'
     | '/lesson-prices'
     | '/reviews'
     | '/semi-intensive-courses'
@@ -130,6 +141,7 @@ export interface FileRouteTypes {
     | '/client-centred-learning'
     | '/driving-lessons'
     | '/driving-videos'
+    | '/faq'
     | '/lesson-prices'
     | '/reviews'
     | '/semi-intensive-courses'
@@ -142,6 +154,7 @@ export interface RootRouteChildren {
   ClientCentredLearningRoute: typeof ClientCentredLearningRoute
   DrivingLessonsRoute: typeof DrivingLessonsRoute
   DrivingVideosRoute: typeof DrivingVideosRoute
+  FaqRoute: typeof FaqRoute
   LessonPricesRoute: typeof LessonPricesRoute
   ReviewsRoute: typeof ReviewsRoute
   SemiIntensiveCoursesRoute: typeof SemiIntensiveCoursesRoute
@@ -191,6 +204,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DrivingVideosRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/lesson-prices': {
       id: '/lesson-prices'
       path: '/lesson-prices'
@@ -222,6 +242,7 @@ const rootRouteChildren: RootRouteChildren = {
   ClientCentredLearningRoute: ClientCentredLearningRoute,
   DrivingLessonsRoute: DrivingLessonsRoute,
   DrivingVideosRoute: DrivingVideosRoute,
+  FaqRoute: FaqRoute,
   LessonPricesRoute: LessonPricesRoute,
   ReviewsRoute: ReviewsRoute,
   SemiIntensiveCoursesRoute: SemiIntensiveCoursesRoute,
